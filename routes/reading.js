@@ -17,7 +17,7 @@ var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
 var connect = require('connect');
-var auth = connect.basicAuth('saydirac', 'saydirac');
+//var auth = connect.basicAuth('saydirac', 'saydirac');
 
 
 // index
@@ -80,7 +80,7 @@ router.get('/:evidence_id/new', function(req, res) {
 
 // new reading
 // GET /readings/new
-router.get('/:reading_id/edit', auth, function(req, res) {
+router.get('/:reading_id/edit', function(req, res) {
 
   var config =  req.app.get('config');
   var types =  require('../config/types.json');
@@ -222,7 +222,7 @@ router.post('/flag',function(req,res){
     })
 });
 
-router.get('/flagged',auth,function(req,res){
+router.get('/flagged', function(req,res){
 
 
 
